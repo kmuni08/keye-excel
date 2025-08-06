@@ -1,7 +1,7 @@
 import React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useTableFormatting } from '../hooks/useTableFormatting.ts';
-import { Column, Item, Row } from '../types';
+import { Column, Item, Row } from '../types.ts';
 import CellFormatter from './CellFormatter.tsx';
 import FormatMenu from './FormatMenu.tsx';
 import raw from '../data.json'; // move data into its own file
@@ -9,7 +9,7 @@ import raw from '../data.json'; // move data into its own file
 const createRows = (items: Item[]): Row[] =>
   items.map((i, idx) => ({ ...i, id: idx + 1, rowIndex: idx + 1, format: {} }));
 
-export default function DenseTable() {
+export default function Spreadsheet() {
   const initialRows = React.useMemo(() => createRows(raw.Values.items), []);
   const {
     rows,
